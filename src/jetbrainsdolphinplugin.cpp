@@ -54,6 +54,7 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
     actions.append(menuAction);
     return {actions};
 }
+
 void JetBrainsDolphinPlugin::helloThere()
 {
     // Only for demo purposes, use KNotifications for real applications

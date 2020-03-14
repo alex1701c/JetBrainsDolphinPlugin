@@ -1,37 +1,21 @@
 # Dolphin Service Menu Plugin
 
-This project is a plugin for dolphin which provides service menus.
-See https://api.kde.org/frameworks-api/frameworks-apidocs/frameworks/kio/html/classKAbstractFileItemActionPlugin.html for the official docs.
+This project is a plugin for dolphin which allows you to open directories and 
+associated projects in the Jetbrains IDEs.
 
 To build this plugin run:
 ```
+git clone https://github.com/alex1701c/JetBrainsDolphinPlugin --recurse-submodules
+cd JetBrainsDolphinPlugin 
 mkdir -p build
 cd build
-cmake ..
-# With Makefiles
+cmake -DCMAKE_BUILD_TYPE=Release ..
 make -j$(nproc)
 sudo make install
-# or with ninja
-ninja -j$(nproc)
-sudo ninja install
 ```
-
-To create a more optimized release build run instead of
-`cmake ..` `cmake -DCMAKE_BUILD_TYPE=Release ..`
 
 The plugin can be disabled in Configure Dolphin -> Services -> uncheck JetBrainsDolphinPlugin 
 or uninstalled by running `sudo make uninstall` or `sudo ninja uninstall` from the build directory
-
-You can also build binary packages:
-```
-cd build
-# Make sure that you create a release build
-cmake -DCMAKE_BUILD_TYPE=Release ..
-make -j$(nproc)
-cpack -G DEB
-cpack -G RPM
-```
-And you can also build any other package format cpack supports.
 
 ### Required Dependencies
 
