@@ -40,7 +40,7 @@ JetBrainsDolphinPlugin::JetBrainsDolphinPlugin(QObject *parent, const QVariantLi
 {
     Q_UNUSED(args)
     apps = JetbrainsAPI::fetchApplications(KSharedConfig::openConfig(
-        QDir::homePath() + "/.config/krunnerplugins/jetbrainsrunnerrc")->group("Config"));
+        QDir::homePath() + "/.config/krunnerplugins/jetbrainsrunnerrc")->group("Config"), false);
 
     // create default menu
     auto *menuAction = new KActionMenu(this);
@@ -53,7 +53,6 @@ JetBrainsDolphinPlugin::JetBrainsDolphinPlugin(QObject *parent, const QVariantLi
         connect(action, &QAction::triggered, this, &JetBrainsDolphinPlugin::openIDE);
         menuAction->addAction(action);
     }
-    defaultActions = {menuAction};
 }
 
 JetBrainsDolphinPlugin::~JetBrainsDolphinPlugin()
@@ -65,30 +64,41 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
     Q_UNUSED(fileItemInfos)
     Q_UNUSED(parentWidget)
 
-    if (fileItemInfos.isDirectory()) {
-        if (fileItemInfos.urlList().count() == 1) {
-            projectPath = fileItemInfos.urlList().first().path();
-            const QString currentDir = fileItemInfos.urlList().first().path();
-            if (QDir(currentDir + "/.idea").exists()) {
-                for (int i = 0; i < apps.count(); ++i) {
-                    const auto app = apps.at(i);
-                    for (const auto &dir: qAsConst(app->recentlyUsed)) {
-                        if (dir == currentDir) {
-                            auto action = new QAction(QIcon::fromTheme(app->iconPath), app->shortName, this);
-                            action->setData(i);
-                            connect(action, &QAction::triggered, this, &JetBrainsDolphinPlugin::openIDE);
-                            return {action, defaultActions.first()};
-                        }
-                    }
-                }
-                return defaultActions;
-            }
-            else {
-                return defaultActions;
+    if (!fileItemInfos.isDirectory() || fileItemInfos.urlList().count() != 1) {
+        return {};
+    }
+    projectPath = fileItemInfos.urlList().first().path();
+    if (QDir(projectPath + "/.idea").exists()) {
+        QList<QAction *> actionList;
+        for (int i = 0; i < apps.count(); ++i) {
+            const auto app = apps.at(i);
+            if (app->recentlyUsed.contains(projectPath)) {
+                auto action = new QAction(QIcon::fromTheme(app->iconPath), "Open with " + app->shortName, this);
+                action->setData(i);
+                connect(action, &QAction::triggered, this, &JetBrainsDolphinPlugin::openIDE);
+                actionList.append(action);
             }
         }
+        // If the project was not opened in the other ides, add them in submenu
+        if (actionList.size() != apps.size()) {
+            auto *menuAction = new KActionMenu(this);
+            menuAction->setIcon(QIcon::fromTheme("jetbrains"));
+            menuAction->setText("Jetbrains");
+            for (int i = 0; i < apps.count(); ++i) {
+                const auto app = apps.at(i);
+                if (app->recentlyUsed.contains(projectPath)) {
+                    continue;
+                }
+                auto action = new QAction(QIcon::fromTheme(app->iconPath), app->shortName, this);
+                action->setData(i);
+                connect(action, &QAction::triggered, this, &JetBrainsDolphinPlugin::openIDE);
+                menuAction->addAction(action);
+            }
+            actionList.append(menuAction);
+        }
+        return actionList;
     }
-    return {};
+    return defaultActions;
 }
 
 void JetBrainsDolphinPlugin::openIDE()
