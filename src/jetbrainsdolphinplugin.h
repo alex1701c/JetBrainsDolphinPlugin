@@ -28,9 +28,8 @@
 #include <KIOCore/KFileItemListProperties>
 #include <QtWidgets/QAction>
 
-/**
- * @todo write docs
- */
+class JetbrainsApplication;
+
 class JetBrainsDolphinPlugin: public KAbstractFileItemActionPlugin
 {
 Q_OBJECT
@@ -41,7 +40,11 @@ public:
     virtual QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) override;
 
 protected Q_SLOTS:
-    void helloThere();
+    void openIDE();
+private:
+    QList<JetbrainsApplication *> apps;
+    QList<QAction *> defaultActions;
+    QString projectPath;
 };
 
 #endif // JETBRAINSDOLPHINPLUGIN_H
