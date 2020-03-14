@@ -53,10 +53,12 @@ JetBrainsDolphinPlugin::JetBrainsDolphinPlugin(QObject *parent, const QVariantLi
         connect(action, &QAction::triggered, this, &JetBrainsDolphinPlugin::openIDE);
         menuAction->addAction(action);
     }
+    defaultActions = {menuAction};
 }
 
 JetBrainsDolphinPlugin::~JetBrainsDolphinPlugin()
 {
+    qDeleteAll(apps);
 }
 
 QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget)
@@ -98,6 +100,7 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
         }
         return actionList;
     }
+
     return defaultActions;
 }
 
