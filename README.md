@@ -1,9 +1,10 @@
 # Dolphin Service Menu Plugin
 
 This project is a plugin for dolphin which allows you to open directories and 
-associated projects in the Jetbrains IDEs.
+associated projects in the Jetbrains IDEs.  
+If you like this plugin you might want to check out the KRunner version: https://github.com/alex1701c/JetBrainsRunner.
 
-To build this plugin run:
+To install this project you can use the deb/rpm packages from the Release page on Github or build from source:
 ```
 git clone https://github.com/alex1701c/JetBrainsDolphinPlugin --recurse-submodules
 cd JetBrainsDolphinPlugin 
@@ -30,3 +31,11 @@ Fedora
 
 Arch(Manjaro):  
 `sudo pacman -S cmake extra-cmake-modules kio`  
+
+### Screenshots
+
+#### Submenu for normal folders
+![Available CLion projects](https://raw.githubusercontent.com/alex1701c/Screenshots/master/JetBrainsDolphinPlugin/not_a_project.png)
+
+#### Project folder
+![Available CLion projects](https://raw.githubusercontent.com/alex1701c/Screenshots/master/JetBrainsDolphinPlugin/clion_project.png)
