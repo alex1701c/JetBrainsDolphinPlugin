@@ -110,6 +110,6 @@ void JetBrainsDolphinPlugin::openIDE()
     QProcess::startDetached(apps.at(appIndex)->executablePath + projectPath);
 }
 
-K_PLUGIN_CLASS_WITH_JSON(JetBrainsDolphinPlugin, "jetbrainsdolphinplugin.json")
+K_PLUGIN_FACTORY(JetBrainsDolphinPluginFactory, registerPlugin<JetBrainsDolphinPlugin>();)
 
 #include "jetbrainsdolphinplugin.moc"
