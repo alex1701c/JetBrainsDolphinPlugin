@@ -1,7 +1,6 @@
 /*
- * <one line to give the program's name and a brief idea of what it does.>
- * Copyright 2020  <copyright holder> <email>
- * 
+ * Copyright 2020  <Alex1701c> <alex1701c.dev@gmx.net>
+ *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation; either version 2 of
@@ -38,12 +37,12 @@ public:
     JetBrainsDolphinPlugin(QObject *parent = nullptr, const QVariantList &args = QVariantList());
     virtual ~JetBrainsDolphinPlugin();
     virtual QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) override;
+    QList<QAction *> getDefaultActions();
 
 protected Q_SLOTS:
     void openIDE();
 private:
     QList<JetbrainsApplication *> apps;
-    QList<QAction *> defaultActions;
     QString projectPath;
 };
 
