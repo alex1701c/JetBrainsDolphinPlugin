@@ -4,16 +4,17 @@ This project is a plugin for dolphin which allows you to open directories and
 associated projects in the Jetbrains IDEs.  
 If you like this plugin you might want to check out the KRunner version: https://github.com/alex1701c/JetBrainsRunner.
 
-To install this project you can use the deb/rpm packages from the Release page on Github or build from source:
-```
-git clone https://github.com/alex1701c/JetBrainsDolphinPlugin --recurse-submodules
-cd JetBrainsDolphinPlugin 
-mkdir -p build
-cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DKDE_INSTALL_QTPLUGINDIR=`kf5-config --qt-plugins` ..
-make -j$(nproc)
-sudo make install
-```
+To install this project you can use the deb/rpm packages from the Release page on Github.  
+
+Or you can build from source using the installer script:  
+`curl https://raw.githubusercontent.com/alex1701c/JetBrainsRunner/master/install.sh | bash`  
+Or you can build it from source without admin privileges:  
+`curl https://raw.githubusercontent.com/alex1701c/JetBrainsRunner/master/install-user.sh | bash`  
+Or you can install the binaries from the release page:  
+`curl https://raw.githubusercontent.com/alex1701c/JetBrainsRunner/master/install-binaries-user.sh | bash`  
+
+Info: Make sure that you include the jetbrains-api submodule when cloning this repo:  
+`git clone https://github.com/alex1701c/JetBrainsRunner --recurse-submodules`
 
 The plugin can be disabled in Configure Dolphin -> Services -> uncheck JetBrainsDolphinPlugin 
 or uninstalled by running `sudo make uninstall` or `sudo ninja uninstall` from the build directory
