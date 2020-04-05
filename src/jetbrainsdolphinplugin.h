@@ -34,9 +34,9 @@ class JetBrainsDolphinPlugin: public KAbstractFileItemActionPlugin
 Q_OBJECT
 
 public:
-    JetBrainsDolphinPlugin(QObject *parent = nullptr, const QVariantList &args = QVariantList());
-    virtual ~JetBrainsDolphinPlugin();
-    virtual QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) override;
+    explicit JetBrainsDolphinPlugin(QObject *parent = nullptr, const QVariantList &args = QVariantList());
+    ~JetBrainsDolphinPlugin() override;
+    QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) override;
     QList<QAction *> getDefaultActions();
 
 protected Q_SLOTS:
