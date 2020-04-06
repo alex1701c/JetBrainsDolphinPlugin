@@ -25,7 +25,7 @@
 #include <KIOWidgets/KAbstractFileItemActionPlugin>
 #include <KIOCore/KFileItem>
 #include <KIOCore/KFileItemListProperties>
-#include <QtWidgets/QAction>
+#include <QAction>
 
 class JetbrainsApplication;
 
@@ -41,6 +41,7 @@ public:
 
 protected Q_SLOTS:
     void openIDE();
+
 private:
     QList<JetbrainsApplication *> apps;
     QString projectPath;
