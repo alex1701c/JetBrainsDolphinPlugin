@@ -23,6 +23,8 @@
 #include <KPluginFactory>
 #include <KWidgetsAddons/KActionMenu>
 #include <KSharedConfig>
+#include <QDir>
+#include <QProcess>
 
 #include "jetbrains-api/export.h"
 
@@ -48,7 +50,7 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
     projectPath = fileItemInfos.urlList().first().path();
     if (QDir(projectPath + "/.idea").exists()) {
         // Only now the apps have to be loaded
-        const auto config = KSharedConfig::openConfig(QDir::homePath() + "/.config/krunnerplugins/jetbrainsrunnerrc")
+        const auto config = KSharedConfig::openConfig(QStringLiteral("krunnerplugins/jetbrainsrunnerrc"))
             ->group("Config");
         apps = JetbrainsAPI::fetchApplications(config, false, false);
 
@@ -93,7 +95,7 @@ void JetBrainsDolphinPlugin::openIDE()
 QList<QAction *> JetBrainsDolphinPlugin::getDefaultActions()
 {
     // Because the folder has no subfolder called .idea we can be sure that it is not a project
-    const auto config = KSharedConfig::openConfig(QDir::homePath() + "/.config/krunnerplugins/jetbrainsrunnerrc")
+    const auto config = KSharedConfig::openConfig(QStringLiteral("krunnerplugins/jetbrainsrunnerrc"))
         ->group("Config");
     apps = JetbrainsAPI::fetchRawApplications(config);
     // create default menu
