@@ -7,14 +7,14 @@ If you like this plugin you might want to check out the KRunner version: https:/
 To install this project you can use the deb/rpm packages from the Release page on Github.  
 
 Or you can build from source using the installer script:  
-`curl https://raw.githubusercontent.com/alex1701c/JetBrainsRunner/master/install.sh | bash`  
+`curl https://raw.githubusercontent.com/alex1701c/JetBrainsDolphinPlugin/master/install.sh | bash`  
 Or you can build it from source without admin privileges:  
-`curl https://raw.githubusercontent.com/alex1701c/JetBrainsRunner/master/install-user.sh | bash`  
+`curl https://raw.githubusercontent.com/alex1701c/JetBrainsDolphinPlugin/master/install-user.sh | bash`  
 Or you can install the binaries from the release page:  
-`curl https://raw.githubusercontent.com/alex1701c/JetBrainsRunner/master/install-binaries-user.sh | bash`  
+`curl https://raw.githubusercontent.com/alex1701c/JetBrainsDolphinPlugin/master/install-binaries-user.sh | bash`  
 
 Info: Make sure that you include the jetbrains-api submodule when cloning this repo:  
-`git clone https://github.com/alex1701c/JetBrainsRunner --recurse-submodules`
+`git clone https://github.com/alex1701c/JetBrainsDolphinPlugin --recurse-submodules`
 
 The plugin can be disabled in Configure Dolphin -> Services -> uncheck JetBrainsDolphinPlugin 
 or uninstalled by running `sudo make uninstall` or `sudo ninja uninstall` from the build directory
