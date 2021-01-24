@@ -23,6 +23,7 @@
 #include <KPluginFactory>
 #include <KWidgetsAddons/KActionMenu>
 #include <KSharedConfig>
+#include <KShell>
 #include <QDir>
 #include <QProcess>
 
@@ -90,7 +91,10 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
 void JetBrainsDolphinPlugin::openIDE()
 {
     int appIndex = reinterpret_cast<QAction *>(this->sender())->data().toInt();
-    QProcess::startDetached(apps.at(appIndex)->executablePath + projectPath);
+    const QString exec = apps.at(appIndex)->executablePath + projectPath;
+    QStringList split = KShell::splitArgs(exec);
+    const QString program = split.takeFirst();
+    QProcess::startDetached(program, split);
 }
 QList<QAction *> JetBrainsDolphinPlugin::getDefaultActions()
 {
