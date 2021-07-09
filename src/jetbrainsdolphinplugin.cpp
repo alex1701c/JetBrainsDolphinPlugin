@@ -57,7 +57,10 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
         QList<QAction *> actionList;
         for (int i = 0; i < apps.count(); ++i) {
             const auto app = apps.at(i);
-            if (app->recentlyUsed.contains(projectPath)) {
+            bool containsProject = std::any_of(app->recentlyUsed.cbegin(),app->recentlyUsed.cend(),[this](const Project &p){
+                return p.path ==projectPath;
+            });
+            if (containsProject) {
                 auto action = new QAction(QIcon::fromTheme(app->iconPath), "Open with " + app->shortName, this);
                 action->setData(i);
                 connect(action, &QAction::triggered, this, &JetBrainsDolphinPlugin::openIDE);
@@ -71,7 +74,10 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
             menuAction->setText(QStringLiteral("Jetbrains"));
             for (int i = 0; i < apps.count(); ++i) {
                 const auto app = apps.at(i);
-                if (app->recentlyUsed.contains(projectPath)) {
+                bool containsProject = std::any_of(app->recentlyUsed.cbegin(),app->recentlyUsed.cend(),[this](const Project &p){
+                    return p.path ==projectPath;
+                });
+                if (containsProject) {
                     continue;
                 }
                 auto action = new QAction(QIcon::fromTheme(app->iconPath), app->shortName, this);
