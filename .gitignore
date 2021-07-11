@@ -1,7 +1,8 @@
 /build
 /.idea
 /.vscode
-/cmake-build-debug
+/cmake-build*
 /target
 *.swap
 *.kdev4
+compile_commands.json
