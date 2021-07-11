@@ -10,5 +10,5 @@ install(FILES jetbrainsdolphinplugin.desktop DESTINATION ${KDE_INSTALL_KSERVICES
 install(TARGETS jetbrainsdolphinplugin DESTINATION ${KDE_INSTALL_QTPLUGINDIR})
 
 #Icon downloaded from https://icon-icons.com/icon/jetbrains-toolbox/93803#64
-set(JETBRAINS_ICON_INSTALL_DIR "/usr/share/pixmaps/" CACHE STRING "Default icon directory")
+set(JETBRAINS_ICON_INSTALL_DIR ${KDE_INSTALL_DATADIR}/pixmaps CACHE STRING "Default icon directory")
 install(FILES jetbrains.png DESTINATION ${JETBRAINS_ICON_INSTALL_DIR})
