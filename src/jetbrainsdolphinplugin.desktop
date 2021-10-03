@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=JetBrainsDolphinPlugin
-Icon=jetbrains
-X-KDE-ServiceTypes=KFileItemAction/Plugin
-MimeType=inode/directory
-X-KDE-Library=jetbrainsdolphinplugin

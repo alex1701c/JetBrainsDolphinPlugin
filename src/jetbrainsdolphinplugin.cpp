@@ -122,6 +122,6 @@ QList<QAction *> JetBrainsDolphinPlugin::getDefaultActions()
     return {menuAction};
 }
 
-K_PLUGIN_FACTORY(JetBrainsDolphinPluginFactory, registerPlugin<JetBrainsDolphinPlugin>();)
+K_PLUGIN_CLASS_WITH_JSON(JetBrainsDolphinPlugin, "jetbrainsdolphinplugin.json")
 
 #include "jetbrainsdolphinplugin.moc"

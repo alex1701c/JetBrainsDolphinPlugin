@@ -1,0 +1,13 @@
+{
+    "KPlugin": {
+        "Icon": "jetbrains",
+        "MimeTypes": [
+            "inode/directory"
+        ],
+        "Name": "JetBrainsDolphinPlugin",
+        "ServiceTypes": [
+            "KFileItemAction/Plugin"
+        ]
+    },
+    "MimeType": "inode/directory"
+}
