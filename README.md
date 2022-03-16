@@ -13,60 +13,64 @@ If you like this plugin you might want to check out the [KRunner version](https:
 
 </details>
 
-### Installation
+## Installation
+
+### Required Dependencies
 
 <details>
-<summary><b><b>Required Dependencies</b></b></summary>
+<summary><b>Debian/Ubuntu</b></summary>
 
-<b>Debian/Ubuntu:</b>
 ```shell
 sudo apt install cmake extra-cmake-modules build-essential libkf5kio-dev
 ```
-
-<b>OpenSUSE:</b>
-```shell
-sudo zypper install cmake extra-cmake-modules kio-devel
-```
-
-<b>Fedora:</b>
-```shell
-sudo dnf install cmake extra-cmake-modules kf5-kio-devel
-```
-
-<b>Arch (Manjaro):</b>
-```shell
-sudo dnf install cmake extra-cmake-modules kio
-```
-
+  
 </details>
 
 <details>
-<summary><b>Option A: Build from source using installer script</b></summary>
+<summary><b>OpenSUSE</b></summary>
+
+```shell
+sudo zypper install cmake extra-cmake-modules kio-devel
+```
+  
+</details>
+
+<details>
+<summary><b>Fedora</b></summary>
+
+```shell
+sudo dnf install cmake extra-cmake-modules kf5-kio-devel
+```
+  
+</details>
+
+<details>
+<summary><b>Arch (Manjaro)</b></summary>
+  
+```shell
+sudo dnf install cmake extra-cmake-modules kio
+```
+  
+</details>
+
+### Installation Methods
+
+#### Option A: Build from source using installer script
 
 ```shell
 curl https://raw.githubusercontent.com/alex1701c/JetBrainsDolphinPlugin/master/install.sh | bash
 ```
-
-</details>
-
-<details>
-<summary><b>Option B: Build from source using installer script (without admin privileges)</b></summary>
+#### Option B: Build from source using installer script (without admin privileges)
 
 ```shell
 curl https://raw.githubusercontent.com/alex1701c/JetBrainsDolphinPlugin/master/install-user.sh | bash
 ```
 
-</details>
-
-<details>
-<summary><b>Option C: Install the binaries from the release page</b></summary>
+#### Option C: Install the binaries from the release page</b></summary>
 
 ```shell
 curl https://raw.githubusercontent.com/alex1701c/JetBrainsDolphinPlugin/master/install-binaries-user.sh | bash
 ```
-
-</details>
-
 
 **INFO:** Make sure that you include the jetbrains-api submodule when cloning this repo!
 ```shell
@@ -74,12 +78,9 @@ git clone https://github.com/alex1701c/JetBrainsDolphinPlugin --recurse-submodul
 ```
 
 
-<details>
-<summary><b>Uninstall</b></summary>
+### Uninstall
 
 #### Disable Plugin
 Go to `Configure Dolphin` ➔ `Services` and then uncheck `JetBrainsDolphinPlugin`
 #### Remove Plugin
 Run `sudo make uninstall` or `sudo ninja uninstall` from the build directory
-
-</details>
