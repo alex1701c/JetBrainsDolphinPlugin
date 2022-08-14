@@ -38,7 +38,7 @@ public:
     QList<QAction *> getDefaultActions();
 
 protected Q_SLOTS:
-    void openIDE();
+    void openIDE(JetbrainsApplication *app);
 
 private:
     QList<JetbrainsApplication *> apps;

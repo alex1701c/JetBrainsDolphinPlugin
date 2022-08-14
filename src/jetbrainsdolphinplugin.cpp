@@ -66,8 +66,9 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
             const auto app = apps.at(i);
             if (containsPath(app, projectPath)) {
                 auto action = new QAction(QIcon::fromTheme(app->iconPath), "Open with " + app->shortName, this);
-                action->setData(i);
-                connect(action, &QAction::triggered, this, &JetBrainsDolphinPlugin::openIDE);
+                connect(action, &QAction::triggered, this, [this, app]() {
+                    openIDE(app);
+                });
                 actionList.append(action);
             }
         }
@@ -82,8 +83,9 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
                     continue;
                 }
                 auto action = new QAction(QIcon::fromTheme(app->iconPath), app->shortName, this);
-                action->setData(i);
-                connect(action, &QAction::triggered, this, &JetBrainsDolphinPlugin::openIDE);
+                connect(action, &QAction::triggered, this, [this, app]() {
+                    openIDE(app);
+                });
                 menuAction->addAction(action);
             }
             actionList.append(menuAction);
@@ -94,10 +96,10 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
     return getDefaultActions();
 }
 
-void JetBrainsDolphinPlugin::openIDE()
+void JetBrainsDolphinPlugin::openIDE(JetbrainsApplication *app)
 {
-    int appIndex = reinterpret_cast<QAction *>(this->sender())->data().toInt();
-    const QString exec = apps.at(appIndex)->executablePath + QLatin1Char(' ') + projectPath;
+    Q_ASSERT(app);
+    const QString exec = app->executablePath + QLatin1Char(' ') + projectPath;
     auto job = new KIO::CommandLauncherJob(exec);
     job->start();
 }
@@ -115,8 +117,9 @@ QList<QAction *> JetBrainsDolphinPlugin::getDefaultActions()
     for (int i = 0; i < apps.count(); ++i) {
         const auto app = apps.at(i);
         auto action = new QAction(QIcon::fromTheme(app->iconPath), app->shortName, this);
-        action->setData(i);
-        connect(action, &QAction::triggered, this, &JetBrainsDolphinPlugin::openIDE);
+        connect(action, &QAction::triggered, this, [this, app]() {
+            openIDE(app);
+        });
         menuAction->addAction(action);
     }
     return {menuAction};
