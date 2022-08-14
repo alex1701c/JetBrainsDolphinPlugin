@@ -32,7 +32,7 @@ class JetBrainsDolphinPlugin: public KAbstractFileItemActionPlugin
 Q_OBJECT
 
 public:
-    explicit JetBrainsDolphinPlugin(QObject *parent = nullptr, const QVariantList &args = QVariantList());
+    explicit JetBrainsDolphinPlugin(QObject *parent, const QVariantList &args);
     ~JetBrainsDolphinPlugin() override;
     QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) override;
     QList<QAction *> getDefaultActions();
