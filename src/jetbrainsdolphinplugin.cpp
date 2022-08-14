@@ -31,7 +31,7 @@
 
 inline bool containsPath(JetbrainsApplication *app, const QString &path)
 {
-    return std::any_of(app->recentlyUsed.begin(), app->recentlyUsed.end(), [&path](const Project &p){
+    return std::any_of(app->recentlyUsed.begin(), app->recentlyUsed.end(), [&path](const Project &p) {
         return p.path == path;
     });
 }
@@ -52,6 +52,11 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
         return {};
     }
     projectPath = fileItemInfos.urlList().first().path();
+
+    if (projectPath.endsWith(QLatin1Char('/'))) {
+        projectPath = projectPath.left(projectPath.lastIndexOf(QLatin1Char('/')));
+    }
+
     if (QDir(projectPath + "/.idea").exists()) {
         // Only now the apps have to be loaded
         const auto config = KSharedConfig::openConfig(QStringLiteral("krunnerplugins/jetbrainsrunnerrc"))
