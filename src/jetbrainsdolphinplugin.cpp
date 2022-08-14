@@ -21,7 +21,7 @@
 #include "jetbrainsdolphinplugin.h"
 
 #include <KPluginFactory>
-#include <KWidgetsAddons/KActionMenu>
+#include <KActionMenu>
 #include <KSharedConfig>
 #include <KShell>
 #include <QDir>
