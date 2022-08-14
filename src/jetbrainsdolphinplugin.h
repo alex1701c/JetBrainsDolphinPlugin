@@ -18,9 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef JETBRAINSDOLPHINPLUGIN_H
-#define JETBRAINSDOLPHINPLUGIN_H
-
+#pragma once
 
 #include <KIOWidgets/KAbstractFileItemActionPlugin>
 #include <KIOCore/KFileItem>
@@ -46,5 +44,3 @@ private:
     QList<JetbrainsApplication *> apps;
     QString projectPath;
 };
-
-#endif // JETBRAINSDOLPHINPLUGIN_H
