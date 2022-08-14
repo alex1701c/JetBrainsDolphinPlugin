@@ -97,7 +97,7 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
 void JetBrainsDolphinPlugin::openIDE()
 {
     int appIndex = reinterpret_cast<QAction *>(this->sender())->data().toInt();
-    const QString exec = apps.at(appIndex)->executablePath + projectPath;
+    const QString exec = apps.at(appIndex)->executablePath + QLatin1Char(' ') + projectPath;
     QStringList split = KShell::splitArgs(exec);
     const QString program = split.takeFirst();
     QProcess::startDetached(program, split);
