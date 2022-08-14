@@ -36,10 +36,9 @@ inline bool containsPath(JetbrainsApplication *app, const QString &path)
     });
 }
 
-JetBrainsDolphinPlugin::JetBrainsDolphinPlugin(QObject *parent, const QVariantList &args)
+JetBrainsDolphinPlugin::JetBrainsDolphinPlugin(QObject *parent, const QVariantList &/*args*/)
     : KAbstractFileItemActionPlugin(parent)
 {
-    Q_UNUSED(args)
 }
 
 JetBrainsDolphinPlugin::~JetBrainsDolphinPlugin()
@@ -47,10 +46,8 @@ JetBrainsDolphinPlugin::~JetBrainsDolphinPlugin()
     qDeleteAll(apps);
 }
 
-QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget)
+QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &fileItemInfos, QWidget */*parentWidget*/)
 {
-    Q_UNUSED(parentWidget)
-
     if (fileItemInfos.urlList().count() != 1) {
         return {};
     }
