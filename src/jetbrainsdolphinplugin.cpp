@@ -25,7 +25,7 @@
 #include <KSharedConfig>
 #include <KShell>
 #include <QDir>
-#include <QProcess>
+#include <KIO/CommandLauncherJob>
 
 #include "jetbrains-api/export.h"
 
@@ -98,10 +98,10 @@ void JetBrainsDolphinPlugin::openIDE()
 {
     int appIndex = reinterpret_cast<QAction *>(this->sender())->data().toInt();
     const QString exec = apps.at(appIndex)->executablePath + QLatin1Char(' ') + projectPath;
-    QStringList split = KShell::splitArgs(exec);
-    const QString program = split.takeFirst();
-    QProcess::startDetached(program, split);
+    auto job = new KIO::CommandLauncherJob(exec);
+    job->start();
 }
+
 QList<QAction *> JetBrainsDolphinPlugin::getDefaultActions()
 {
     // Because the folder has no subfolder called .idea we can be sure that it is not a project
