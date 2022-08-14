@@ -37,10 +37,8 @@ public:
     QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) override;
     QList<QAction *> getDefaultActions();
 
-protected Q_SLOTS:
-    void openIDE(JetbrainsApplication *app);
-
 private:
+    Q_SLOT void openIDE(JetbrainsApplication *app);
     QList<JetbrainsApplication *> apps;
     QString projectPath;
 };
