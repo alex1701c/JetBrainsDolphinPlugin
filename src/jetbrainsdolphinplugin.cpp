@@ -101,7 +101,7 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
 void JetBrainsDolphinPlugin::openIDE(JetbrainsApplication *app)
 {
     Q_ASSERT(app);
-    const QString exec = app->executablePath + QLatin1Char(' ') + QLatin1Char('"') + projectPath + QLatin1Char('"');
+    const QString exec = app->executablePath + QLatin1Char(' ') + KShell::quoteArg(projectPath);
     auto job = new KIO::CommandLauncherJob(exec);
     job->start();
 }
