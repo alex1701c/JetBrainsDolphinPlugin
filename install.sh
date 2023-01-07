@@ -12,6 +12,8 @@ mkdir -p build
 cd build
 cmake -DKDE_INSTALL_QTPLUGINDIR=`kf5-config --qt-plugins` -DCMAKE_BUILD_TYPE=Release  ..
 make -j$(nproc)
+
+echo "The installation into the system wide plugin directory requires superuser privileges"
 sudo make install
 
 echo "Installation finished !";
