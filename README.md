@@ -48,7 +48,7 @@ sudo dnf install cmake extra-cmake-modules kf5-kio-devel
 <summary><b>Arch (Manjaro)</b></summary>
   
 ```shell
-sudo dnf install cmake extra-cmake-modules kio
+sudo pacman -S cmake extra-cmake-modules kio
 ```
   
 </details>
