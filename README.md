@@ -66,12 +66,6 @@ curl https://raw.githubusercontent.com/alex1701c/JetBrainsDolphinPlugin/master/i
 curl https://raw.githubusercontent.com/alex1701c/JetBrainsDolphinPlugin/master/install-user.sh | bash
 ```
 
-#### Option C: Install the binaries from the release page</b></summary>
-
-```shell
-curl https://raw.githubusercontent.com/alex1701c/JetBrainsDolphinPlugin/master/install-binaries-user.sh | bash
-```
-
 **INFO:** Make sure that you include the jetbrains-api submodule when cloning this repo!
 ```shell
 git clone https://github.com/alex1701c/JetBrainsDolphinPlugin --recurse-submodules
