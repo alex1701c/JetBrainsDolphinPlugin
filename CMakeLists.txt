@@ -1,6 +1,6 @@
-project(jetbrainsservicemenu)
-
 cmake_minimum_required(VERSION 3.16.0)
+
+project(jetbrainsservicemenu)
 
 set(KF5_MIN_VERSION "5.72.0")
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
