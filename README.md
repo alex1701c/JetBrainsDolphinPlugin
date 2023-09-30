@@ -60,7 +60,10 @@ sudo pacman -S cmake extra-cmake-modules kio
 ```shell
 curl https://raw.githubusercontent.com/alex1701c/JetBrainsDolphinPlugin/master/install.sh | bash
 ```
-#### Option B: Build from source using installer script (without admin privileges)
+
+#### Option B: Get it from the [AUR](https://aur.archlinux.org/packages/kf5-servicemenus-jetbrains-dolphin-plugin-git)
+
+#### Option C: Build from source using installer script (without admin privileges)
 
 ```shell
 curl https://raw.githubusercontent.com/alex1701c/JetBrainsDolphinPlugin/master/install-user.sh | bash
