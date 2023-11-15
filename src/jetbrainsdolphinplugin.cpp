@@ -24,8 +24,10 @@
 #include <KActionMenu>
 #include <KSharedConfig>
 #include <KShell>
+#include <KService>
 #include <QDir>
 #include <KIO/CommandLauncherJob>
+#include <KIO/DesktopExecParser>
 
 #include "jetbrains-api/export.h"
 
@@ -46,7 +48,7 @@ JetBrainsDolphinPlugin::~JetBrainsDolphinPlugin()
     qDeleteAll(apps);
 }
 
-QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &fileItemInfos, QWidget */*parentWidget*/)
+QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &fileItemInfos, QWidget * /*parentWidget*/)
 {
     if (fileItemInfos.urlList().count() != 1) {
         return {};
@@ -101,8 +103,10 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
 void JetBrainsDolphinPlugin::openIDE(JetbrainsApplication *app)
 {
     Q_ASSERT(app);
-    const QString exec = app->executablePath + QLatin1Char(' ') + KShell::quoteArg(projectPath);
-    auto job = new KIO::CommandLauncherJob(exec);
+    KService service(app->desktopFilePath);
+    KIO::DesktopExecParser p(service, QList<QUrl>{projectPath});
+    QStringList exec = p.resultingArguments();
+    auto job = new KIO::CommandLauncherJob(exec.takeFirst(),exec);
     job->start();
 }
 
