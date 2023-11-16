@@ -104,7 +104,7 @@ void JetBrainsDolphinPlugin::openIDE(JetbrainsApplication *app)
 {
     Q_ASSERT(app);
     KService service(app->desktopFilePath);
-    KIO::DesktopExecParser p(service, QList<QUrl>{projectPath});
+    KIO::DesktopExecParser p(service, QList<QUrl>{QUrl::fromLocalFile(projectPath)});
     QStringList exec = p.resultingArguments();
     auto job = new KIO::CommandLauncherJob(exec.takeFirst(),exec);
     job->start();
