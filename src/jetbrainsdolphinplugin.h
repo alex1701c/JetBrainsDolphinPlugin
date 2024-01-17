@@ -20,9 +20,9 @@
 
 #pragma once
 
-#include <KIOWidgets/KAbstractFileItemActionPlugin>
-#include <KIOCore/KFileItem>
-#include <KIOCore/KFileItemListProperties>
+#include <KAbstractFileItemActionPlugin>
+#include <KFileItem>
+#include <KFileItemListProperties>
 #include <QAction>
 
 class JetbrainsApplication;
@@ -41,4 +41,5 @@ private:
     Q_SLOT void openIDE(JetbrainsApplication *app);
     QList<JetbrainsApplication *> apps;
     QString projectPath;
+    const QIcon jetbrainsIcon;
 };

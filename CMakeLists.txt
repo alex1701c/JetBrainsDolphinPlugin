@@ -2,15 +2,19 @@ cmake_minimum_required(VERSION 3.16.0)
 
 project(jetbrainsservicemenu)
 
-set(KF5_MIN_VERSION "5.72.0")
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+set(KF_MIN_VERSION "5.91.0")
+set(KDE_COMPILERSETTINGS_LEVEL "5.82.0")
+
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_MODULE_PATH})
 
-find_package(KF5 REQUIRED COMPONENTS KIO)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
+include(QtVersionOption)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(FeatureSummary)
+
+find_package(KF${QT_MAJOR_VERSION} REQUIRED COMPONENTS KIO)
 
 add_subdirectory(src)
 

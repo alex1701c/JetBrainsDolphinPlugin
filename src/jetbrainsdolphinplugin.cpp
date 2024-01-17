@@ -40,6 +40,7 @@ inline bool containsPath(JetbrainsApplication *app, const QString &path)
 
 JetBrainsDolphinPlugin::JetBrainsDolphinPlugin(QObject *parent, const QVariantList &/*args*/)
     : KAbstractFileItemActionPlugin(parent)
+      ,jetbrainsIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("jetbrainsdolphinplugin/jetbrains.png")))
 {
 }
 
@@ -79,7 +80,8 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
         // If the project was not opened in the other ides, add them in submenu
         if (actionList.size() != apps.size()) {
             auto *menuAction = new KActionMenu(this);
-            menuAction->setIcon(QIcon::fromTheme(QStringLiteral("jetbrains")));
+            qWarning()<< QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("icons/jetbrains.png"));
+            menuAction->setIcon(jetbrainsIcon);
             menuAction->setText(QStringLiteral("Jetbrains"));
             for (int i = 0; i < apps.count(); ++i) {
                 const auto app = apps.at(i);
@@ -118,7 +120,7 @@ QList<QAction *> JetBrainsDolphinPlugin::getDefaultActions()
     apps = JetbrainsAPI::fetchRawApplications(config);
     // create default menu
     auto *menuAction = new KActionMenu(this);
-    menuAction->setIcon(QIcon::fromTheme(QStringLiteral("jetbrains")));
+    menuAction->setIcon(jetbrainsIcon);
     menuAction->setText(QStringLiteral("Jetbrains"));
     for (int i = 0; i < apps.count(); ++i) {
         const auto app = apps.at(i);
