@@ -15,7 +15,7 @@ If you like this plugin you might want to check out the [KRunner version](https:
 
 ## Installation
 
-### Required Dependencies
+### Required Dependencies for Dolphin 5
 
 <details>
 <summary><b>Debian/Ubuntu</b></summary>
@@ -62,12 +62,6 @@ curl https://raw.githubusercontent.com/alex1701c/JetBrainsDolphinPlugin/master/i
 ```
 
 #### Option B: Get it from the [AUR](https://aur.archlinux.org/packages/kf5-servicemenus-jetbrains-dolphin-plugin-git)
-
-#### Option C: Build from source using installer script (without admin privileges)
-
-```shell
-curl https://raw.githubusercontent.com/alex1701c/JetBrainsDolphinPlugin/master/install-user.sh | bash
-```
 
 **INFO:** Make sure that you include the jetbrains-api submodule when cloning this repo!
 ```shell
