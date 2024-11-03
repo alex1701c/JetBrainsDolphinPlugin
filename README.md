@@ -20,8 +20,13 @@ If you like this plugin you might want to check out the [KRunner version](https:
 <details>
 <summary><b>Debian/Ubuntu</b></summary>
 
-```shell
+Plasma5:  
+```bash install-ubuntu-plasma5
 sudo apt install cmake extra-cmake-modules build-essential libkf5kio-dev
+```
+Plasma6:  
+```bash install-ubuntu-plasma6
+sudo apt install cmake extra-cmake-modules build-essential libkf6kio-dev
 ```
   
 </details>
@@ -29,8 +34,13 @@ sudo apt install cmake extra-cmake-modules build-essential libkf5kio-dev
 <details>
 <summary><b>OpenSUSE</b></summary>
 
-```shell
+Plasma5:  
+```bash install-opensuse-plasma5
 sudo zypper install cmake extra-cmake-modules kio-devel
+```
+Plasma6:  
+```bash install-opensuse-plasma6
+sudo zypper install cmake extra-cmake-modules kf6-kio-devel
 ```
   
 </details>
@@ -38,8 +48,13 @@ sudo zypper install cmake extra-cmake-modules kio-devel
 <details>
 <summary><b>Fedora</b></summary>
 
-```shell
+Plasma5:  
+```bash install-fedora-plasma5
 sudo dnf install cmake extra-cmake-modules kf5-kio-devel
+```
+Plasma6:  
+```bash install-fedora-plasma6
+sudo dnf install cmake extra-cmake-modules kf6-kio-devel
 ```
   
 </details>
