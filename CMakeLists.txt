@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16.0)
 
 project(jetbrainsservicemenu)
 
-set(CMAKE_PROJECT_VERSION "1.4.0")
+set(CMAKE_PROJECT_VERSION "1.4.1")
 set(KF_MIN_VERSION "5.105.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82.0")
 
