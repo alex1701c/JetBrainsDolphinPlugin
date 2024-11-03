@@ -127,6 +127,22 @@ jobs:
           cpack | tee cpack.out
           filepath=$(sed -nr 's/.*package: (.+) generated\./\1/p' cpack.out)
           echo "filepath=$filepath" >> "$GITHUB_OUTPUT"
+      - name: Test install of binary packages
+        shell: bash
+        if: inputs.publish-version
+        run: |
+          binary_file="${{ steps.cpack.outputs.filepath }}"
+          # Detect and install using the correct package manager
+          if [[ "${{ matrix.os.name }}" == "ubuntu" ]]; then
+            apt install -y "$binary_file"
+          elif [[ "${{ matrix.os.name }}" == "fedora" ]]; then
+            dnf install -y "$binary_file"
+          elif [[ "${{ matrix.os.name }}" == "opensuse" ]]; then
+            zypper install -y "$binary_file"
+          else
+            echo "Unsupported OS"
+            exit 1
+          fi
 
       - uses: actions/upload-artifact@v4
         if: inputs.publish-version
