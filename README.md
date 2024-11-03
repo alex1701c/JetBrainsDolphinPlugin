@@ -22,11 +22,11 @@ If you like this plugin you might want to check out the [KRunner version](https:
 
 Plasma5:  
 ```bash install-ubuntu-plasma5
-sudo apt install cmake extra-cmake-modules build-essential libkf5kio-dev
+sudo apt install git cmake extra-cmake-modules build-essential libkf5kio-dev
 ```
 Plasma6:  
 ```bash install-ubuntu-plasma6
-sudo apt install cmake extra-cmake-modules build-essential libkf6kio-dev
+sudo apt install git cmake extra-cmake-modules build-essential libkf6kio-dev
 ```
   
 </details>
@@ -36,11 +36,11 @@ sudo apt install cmake extra-cmake-modules build-essential libkf6kio-dev
 
 Plasma5:  
 ```bash install-opensuse-plasma5
-sudo zypper install cmake extra-cmake-modules kio-devel
+sudo zypper install git cmake extra-cmake-modules kio-devel
 ```
 Plasma6:  
 ```bash install-opensuse-plasma6
-sudo zypper install cmake extra-cmake-modules kf6-kio-devel
+sudo zypper install git cmake extra-cmake-modules kf6-kio-devel
 ```
   
 </details>
@@ -50,11 +50,11 @@ sudo zypper install cmake extra-cmake-modules kf6-kio-devel
 
 Plasma5:  
 ```bash install-fedora-plasma5
-sudo dnf install cmake extra-cmake-modules kf5-kio-devel
+sudo dnf install git cmake extra-cmake-modules kf5-kio-devel
 ```
 Plasma6:  
 ```bash install-fedora-plasma6
-sudo dnf install cmake extra-cmake-modules kf6-kio-devel
+sudo dnf install git cmake extra-cmake-modules kf6-kio-devel
 ```
   
 </details>
