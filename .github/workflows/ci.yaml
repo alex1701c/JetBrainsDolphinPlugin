@@ -138,7 +138,7 @@ jobs:
           elif [[ "${{ matrix.os.name }}" == "fedora" ]]; then
             dnf install -y "$binary_file"
           elif [[ "${{ matrix.os.name }}" == "opensuse" ]]; then
-            zypper install -y "$binary_file"
+            zypper install -y --allow-unsigned-rpm "$binary_file"
           else
             echo "Unsupported OS"
             exit 1
