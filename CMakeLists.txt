@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.16.0)
 project(jetbrainsservicemenu)
 
 set(CMAKE_PROJECT_VERSION "1.4.0")
-set(KF_MIN_VERSION "5.91.0")
+set(KF_MIN_VERSION "5.105.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
