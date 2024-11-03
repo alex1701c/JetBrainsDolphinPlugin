@@ -36,11 +36,11 @@ sudo apt install git cmake extra-cmake-modules build-essential libkf6kio-dev
 
 Plasma5:  
 ```bash install-opensuse-plasma5
-sudo zypper install git cmake extra-cmake-modules kio-devel
+sudo zypper install git cmake extra-cmake-modules kio-devel libQt5Test-devel
 ```
 Plasma6:  
 ```bash install-opensuse-plasma6
-sudo zypper install git cmake extra-cmake-modules kf6-kio-devel
+sudo zypper install git cmake extra-cmake-modules kf6-kio-devel qt6-test-devel
 ```
   
 </details>
