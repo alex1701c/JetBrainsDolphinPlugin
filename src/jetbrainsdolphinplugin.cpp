@@ -136,3 +136,4 @@ QList<QAction *> JetBrainsDolphinPlugin::getDefaultActions()
 K_PLUGIN_CLASS_WITH_JSON(JetBrainsDolphinPlugin, "jetbrainsdolphinplugin.json")
 
 #include "jetbrainsdolphinplugin.moc"
+#include "moc_jetbrainsdolphinplugin.cpp"
