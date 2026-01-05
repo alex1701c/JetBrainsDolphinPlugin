@@ -81,7 +81,7 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
             auto *menuAction = new KActionMenu(this);
             qWarning() << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("icons/jetbrains.png"));
             menuAction->setIcon(jetbrainsIcon);
-            menuAction->setText(QStringLiteral("Jetbrains"));
+            menuAction->setText(QStringLiteral("JetBrains"));
             for (int i = 0; i < apps.count(); ++i) {
                 const auto app = apps.at(i);
                 if (containsPath(app, projectPath)) {
@@ -119,7 +119,7 @@ QList<QAction *> JetBrainsDolphinPlugin::getDefaultActions()
     // create default menu
     auto *menuAction = new KActionMenu(this);
     menuAction->setIcon(jetbrainsIcon);
-    menuAction->setText(QStringLiteral("Jetbrains"));
+    menuAction->setText(QStringLiteral("JetBrains"));
     for (int i = 0; i < apps.count(); ++i) {
         const auto app = apps.at(i);
         auto action = new QAction(QIcon::fromTheme(app->iconPath), app->shortName, this);
