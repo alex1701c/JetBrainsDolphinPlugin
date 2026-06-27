@@ -11,7 +11,7 @@ if [[ $(basename "$PWD") !=  "JetBrainsDolphinPlugin"* ]];then
     echo "Files have been updated."
 elif [[ $(basename "$PWD") !=  "JetBrainsDolphinPlugin"* ]]; then
     git clone https://github.com/alex1701c/JetBrainsDolphinPlugin --recurse-submodules
-    cd JetBrainsRunner/
+    cd JetBrainsDolphinPlugin/
 fi
 
 mkdir -p build
