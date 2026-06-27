@@ -54,7 +54,7 @@ QList<QAction *> JetBrainsDolphinPlugin::actions(const KFileItemListProperties &
     if (fileItemInfos.urlList().count() != 1) {
         return {};
     }
-    projectPath = fileItemInfos.urlList().first().path();
+    projectPath = fileItemInfos.urlList().constFirst().path();
 
     if (projectPath.endsWith(QLatin1Char('/'))) {
         projectPath = projectPath.left(projectPath.lastIndexOf(QLatin1Char('/')));
