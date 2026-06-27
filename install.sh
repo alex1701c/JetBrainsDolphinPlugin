@@ -3,7 +3,7 @@
 # Exit immediately if something fails
 set -e
 
-if [[ $(basename "$PWD") !=  "JetBrainsDolphinPlugin"* ]];then
+if [ -d "$PWD/JetBrainsDolphinPlugin" ]; then
     # Update existing install
     cd JetBrainsDolphinPlugin/
     git pull
