@@ -17,11 +17,11 @@ mkdir -p build
 cd build
 
 dolphin_version=$(dolphin --version | grep -oP "(?<=dolphin )\d+")
-if [[ "$dolphin_version" == "24" ]]; then
+if [[ "$dolphin_version" -ge 24 ]]; then
     echo "Building for Dolohin6"
     BUILD_QT6_OPTION="-DBUILD_WITH_QT6=ON"
 else
-    echo "Building for Dolohin6"
+    echo "Building for Dolohin5"
     BUILD_QT6_OPTION=""
 fi
 
