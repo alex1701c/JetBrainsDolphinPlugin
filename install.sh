@@ -6,7 +6,8 @@ set -e
 if [[ $(basename "$PWD") !=  "JetBrainsDolphinPlugin"* ]];then
     # Update existing install
     cd JetBrainsDolphinPlugin/
-    git pull --recurse-submodules -f
+    git pull
+    git submodule update --init --recursive
     echo "Files have been updated."
 elif [[ $(basename "$PWD") !=  "JetBrainsDolphinPlugin"* ]]; then
     git clone https://github.com/alex1701c/JetBrainsDolphinPlugin --recurse-submodules
